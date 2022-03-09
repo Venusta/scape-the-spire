@@ -5,19 +5,19 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 public class TimedVFXAction extends AbstractGameAction {
-    private AbstractGameEffect effect;
-    private boolean added = false;
+  private AbstractGameEffect effect;
+  private boolean added = false;
 
-    public TimedVFXAction(AbstractGameEffect effect) {
-        this.effect = effect;
-    }
+  public TimedVFXAction(AbstractGameEffect effect) {
+    this.effect = effect;
+  }
 
-    @Override
-    public void update() {
-        if (!added) {
-            AbstractDungeon.effectList.add(effect);
-            added = true;
-        }
-        isDone = effect.isDone;
+  @Override
+  public void update() {
+    if (!added) {
+      AbstractDungeon.effectList.add(effect);
+      added = true;
     }
+    isDone = effect.isDone;
+  }
 }

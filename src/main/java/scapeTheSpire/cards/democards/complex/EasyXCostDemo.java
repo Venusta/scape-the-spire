@@ -7,32 +7,33 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import scapeTheSpire.actions.EasyXCostAction;
 import scapeTheSpire.cards.AbstractEasyCard;
 
-import static scapeTheSpire.util.Wiz.*;
 import static scapeTheSpire.ScapeTheSpire.makeID;
+import static scapeTheSpire.util.Wiz.applyToSelfTop;
+import static scapeTheSpire.util.Wiz.atb;
 
 public class EasyXCostDemo extends AbstractEasyCard {
-    public final static String ID = makeID("EasyXCostDemo");
-    // intellij stuff attack, enemy, rare, , , , , 0, 1
+  public final static String ID = makeID("EasyXCostDemo");
+  // intellij stuff attack, enemy, rare, , , , , 0, 1
 
-    public EasyXCostDemo() {
-        super(ID, -1, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
-        baseMagicNumber = magicNumber = 0;
-        baseDamage = 5;
-        exhaust = true;
-    }
+  public EasyXCostDemo() {
+    super(ID, -1, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
+    baseMagicNumber = magicNumber = 0;
+    baseDamage = 5;
+    exhaust = true;
+  }
 
-    public void use(AbstractPlayer p, AbstractMonster m) {
-        atb(new EasyXCostAction(this, (effect, params) -> {
-            for (int i = 0; i < effect + params[0]; i++) {
-                dmgTop(m, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
-            }
-            applyToSelfTop(new StrengthPower(p, effect + params[0]));
-            return true;
-        }, magicNumber));
-    }
+  public void use(AbstractPlayer p, AbstractMonster m) {
+    atb(new EasyXCostAction(this, (effect, params) -> {
+      for (int i = 0; i < effect + params[0]; i++) {
+        dmgTop(m, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
+      }
+      applyToSelfTop(new StrengthPower(p, effect + params[0]));
+      return true;
+    }, magicNumber));
+  }
 
-    public void upp() {
-        upgradeMagicNumber(1);
-        uDesc();
-    }
+  public void upp() {
+    upgradeMagicNumber(1);
+    uDesc();
+  }
 }

@@ -18,28 +18,28 @@ import static scapeTheSpire.util.Wiz.*;
 
 public class SelectCardsPlusCardMods extends AbstractEasyCard {
 
-    public final static String ID = makeID("SelectCardsPlusCardMods");
-    // intellij stuff skill, self, uncommon
+  public final static String ID = makeID("SelectCardsPlusCardMods");
+  // intellij stuff skill, self, uncommon
 
-    public SelectCardsPlusCardMods() {
-        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
-    }
+  public SelectCardsPlusCardMods() {
+    super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
+  }
 
-    public void use(AbstractPlayer p, AbstractMonster m) {
-        ArrayList<AbstractCard> myCardsList = new ArrayList<>();
-        ArrayList<AbstractCard> eligibleCardsList = getCardsMatchingPredicate(c -> c.cost == 0, true);
-        Collections.shuffle(eligibleCardsList);
-        for (int i = 0; i < 3; i++) {
-            CardModifierManager.addModifier(eligibleCardsList.get(i), new EtherealMod());
-            CardModifierManager.addModifier(eligibleCardsList.get(i), new ExhaustMod());
-            myCardsList.add(eligibleCardsList.get(i));
-        }
-        atb(new SelectCardsAction(myCardsList, 1, "Choose a card to add into your hand with Ethereal and Exhaust.", (cards) -> {
-            att(new MakeTempCardInHandAction(cards.get(0), 1, true));
-        }));
+  public void use(AbstractPlayer p, AbstractMonster m) {
+    ArrayList<AbstractCard> myCardsList = new ArrayList<>();
+    ArrayList<AbstractCard> eligibleCardsList = getCardsMatchingPredicate(c -> c.cost == 0, true);
+    Collections.shuffle(eligibleCardsList);
+    for (int i = 0; i < 3; i++) {
+      CardModifierManager.addModifier(eligibleCardsList.get(i), new EtherealMod());
+      CardModifierManager.addModifier(eligibleCardsList.get(i), new ExhaustMod());
+      myCardsList.add(eligibleCardsList.get(i));
     }
+    atb(new SelectCardsAction(myCardsList, 1, "Choose a card to add into your hand with Ethereal and Exhaust.", (cards) -> {
+      att(new MakeTempCardInHandAction(cards.get(0), 1, true));
+    }));
+  }
 
-    public void upp() {
-        upgradeBaseCost(0);
-    }
+  public void upp() {
+    upgradeBaseCost(0);
+  }
 } 

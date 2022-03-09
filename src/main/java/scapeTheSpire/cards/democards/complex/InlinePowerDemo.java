@@ -15,41 +15,41 @@ import static scapeTheSpire.util.Wiz.atb;
 
 public class InlinePowerDemo extends AbstractEasyCard {
 
-    public final static String ID = makeID("InlinePowerDemo");
-    // intellij stuff power, self, uncommon
+  public final static String ID = makeID("InlinePowerDemo");
+  // intellij stuff power, self, uncommon
 
-    private static final int MAGIC = 4;
-    private static final int UPG_MAGIC = 2;
+  private static final int MAGIC = 4;
+  private static final int UPG_MAGIC = 2;
 
-    public InlinePowerDemo() {
-        super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
-        baseMagicNumber = magicNumber = MAGIC;
-    }
+  public InlinePowerDemo() {
+    super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
+    baseMagicNumber = magicNumber = MAGIC;
+  }
 
-    public void use(AbstractPlayer p, AbstractMonster m) {
-        applyToSelf(new LambdaPower("Strike+, Block+", AbstractPower.PowerType.BUFF, false, p, magicNumber) {
-            @Override
-            public float atDamageGive(float damage, DamageInfo.DamageType type, AbstractCard card) {
-                if (card.hasTag(CardTags.STRIKE)) {
-                    return damage + amount;
-                }
-                return damage;
-            }
+  public void use(AbstractPlayer p, AbstractMonster m) {
+    applyToSelf(new LambdaPower("Strike+, Block+", AbstractPower.PowerType.BUFF, false, p, magicNumber) {
+      @Override
+      public float atDamageGive(float damage, DamageInfo.DamageType type, AbstractCard card) {
+        if (card.hasTag(CardTags.STRIKE)) {
+          return damage + amount;
+        }
+        return damage;
+      }
 
-            @Override
-            public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
-                flash();
-                atb(new GainBlockAction(owner, amount));
-            }
+      @Override
+      public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
+        flash();
+        atb(new GainBlockAction(owner, amount));
+      }
 
-            @Override
-            public void updateDescription() {
-                description = "#yStrikes deal #b" + amount + " additional damage. At the end of your turn, gain #b" + amount + " #yBlock.";
-            }
-        });
-    }
+      @Override
+      public void updateDescription() {
+        description = "#yStrikes deal #b" + amount + " additional damage. At the end of your turn, gain #b" + amount + " #yBlock.";
+      }
+    });
+  }
 
-    public void upp() {
-        upgradeMagicNumber(UPG_MAGIC);
-    }
+  public void upp() {
+    upgradeMagicNumber(UPG_MAGIC);
+  }
 } 

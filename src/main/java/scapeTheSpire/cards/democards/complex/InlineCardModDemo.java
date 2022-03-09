@@ -17,32 +17,32 @@ import static scapeTheSpire.util.Wiz.returnTrulyRandomPrediCardInCombat;
 
 public class InlineCardModDemo extends AbstractEasyCard {
 
-    public final static String ID = makeID("InlineCardModDemo");
-    // intellij stuff skill, self, uncommon
+  public final static String ID = makeID("InlineCardModDemo");
+  // intellij stuff skill, self, uncommon
 
-    public InlineCardModDemo() {
-        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
-    }
+  public InlineCardModDemo() {
+    super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
+  }
 
-    public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractCard q = returnTrulyRandomPrediCardInCombat(c -> c.hasTag(CardTags.STRIKE) && c.rarity != CardRarity.BASIC, true);
-        CardModifierManager.addModifier(q, new LambdaMod() {
-            @Override
-            public void onUse(AbstractCard card, AbstractCreature target, UseCardAction action) {
-                if (target instanceof Spiker) {
-                    addToBot(new InstantKillAction(target));
-                }
-            }
+  public void use(AbstractPlayer p, AbstractMonster m) {
+    AbstractCard q = returnTrulyRandomPrediCardInCombat(c -> c.hasTag(CardTags.STRIKE) && c.rarity != CardRarity.BASIC, true);
+    CardModifierManager.addModifier(q, new LambdaMod() {
+      @Override
+      public void onUse(AbstractCard card, AbstractCreature target, UseCardAction action) {
+        if (target instanceof Spiker) {
+          addToBot(new InstantKillAction(target));
+        }
+      }
 
-            @Override
-            public String modifyDescription(String rawDescription, AbstractCard card) {
-                return rawDescription + " NL Kills Spikers.";
-            }
-        });
-        makeInHand(q);
-    }
+      @Override
+      public String modifyDescription(String rawDescription, AbstractCard card) {
+        return rawDescription + " NL Kills Spikers.";
+      }
+    });
+    makeInHand(q);
+  }
 
-    public void upp() {
-        upgradeBaseCost(0);
-    }
+  public void upp() {
+    upgradeBaseCost(0);
+  }
 } 
