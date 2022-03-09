@@ -221,7 +221,7 @@ public abstract class AbstractEasyCard extends CustomCard {
     att(new DamageAction(m, new DamageInfo(AbstractDungeon.player, damage, damageTypeForTurn), fx));
   }
 
-  protected void allDmg(AbstractGameAction.AttackEffect fx) {
+  protected void damageAll(AbstractGameAction.AttackEffect fx) {
     addToBottom(new DamageAllEnemiesAction(AbstractDungeon.player, multiDamage, damageTypeForTurn, fx));
   }
 
