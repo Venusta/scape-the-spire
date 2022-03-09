@@ -18,10 +18,10 @@ public class Strike extends AbstractEasyCard {
   }
 
   public void use(AbstractPlayer p, AbstractMonster m) {
-    dmg(m, AbstractGameAction.AttackEffect.NONE);
+    damage(m, AbstractGameAction.AttackEffect.NONE);
   }
 
-  public void upp() {
+  public void upgradeCard() {
     upgradeDamage(3);
   }
 }

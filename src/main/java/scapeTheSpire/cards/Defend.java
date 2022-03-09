@@ -19,7 +19,7 @@ public class Defend extends AbstractEasyCard {
     blck();
   }
 
-  public void upp() {
+  public void upgradeCard() {
     upgradeBlock(3);
   }
 }

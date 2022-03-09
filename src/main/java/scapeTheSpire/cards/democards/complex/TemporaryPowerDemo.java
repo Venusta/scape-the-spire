@@ -25,7 +25,7 @@ public class TemporaryPowerDemo extends AbstractEasyCard {
     applyToSelfTemp(new NirvanaPower(p, magicNumber));
   }
 
-  public void upp() {
+  public void upgradeCard() {
     upgradeMagicNumber(UPG_MAGIC);
   }
 } 

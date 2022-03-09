@@ -49,7 +49,7 @@ public class InlinePowerDemo extends AbstractEasyCard {
     });
   }
 
-  public void upp() {
+  public void upgradeCard() {
     upgradeMagicNumber(UPG_MAGIC);
   }
 } 

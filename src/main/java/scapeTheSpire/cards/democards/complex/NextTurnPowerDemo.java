@@ -25,7 +25,7 @@ public class NextTurnPowerDemo extends AbstractEasyCard {
     applyToSelfNextTurn(new ThornsPower(p, magicNumber));
   }
 
-  public void upp() {
+  public void upgradeCard() {
     upgradeMagicNumber(UPG_MAGIC);
   }
 } 

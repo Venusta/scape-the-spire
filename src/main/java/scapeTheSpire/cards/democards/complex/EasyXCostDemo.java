@@ -32,7 +32,7 @@ public class EasyXCostDemo extends AbstractEasyCard {
     }, magicNumber));
   }
 
-  public void upp() {
+  public void upgradeCard() {
     upgradeMagicNumber(1);
     uDesc();
   }

@@ -31,7 +31,7 @@ public class EasyModalChoiceDemo extends AbstractEasyCard {
     addToBottom(new EasyModalChoiceAction(easyCardList));
   }
 
-  public void upp() {
+  public void upgradeCard() {
     upgradeMagicNumber(1);
     upgradeSecondMagic(1);
   }

@@ -23,7 +23,7 @@ public class ExampleTwoAmountPowerCard extends AbstractEasyCard {
     applyToSelf(new ExampleTwoAmountPower(p, magicNumber, 1));
   }
 
-  public void upp() {
+  public void upgradeCard() {
     upgradeMagicNumber(UPGRADE_MAGIC);
   }
 }

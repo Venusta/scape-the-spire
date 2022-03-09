@@ -57,7 +57,7 @@ public class MultiPreviewDemoCard extends AbstractEasyCard {
     makeInHand(getRandomItem(myCardsList()));
   }
 
-  public void upp() {
+  public void upgradeCard() {
     upgradeCardToPreview();
     uDesc();
   }

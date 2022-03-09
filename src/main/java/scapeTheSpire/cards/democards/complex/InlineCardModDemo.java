@@ -42,7 +42,7 @@ public class InlineCardModDemo extends AbstractEasyCard {
     makeInHand(q);
   }
 
-  public void upp() {
+  public void upgradeCard() {
     upgradeBaseCost(0);
   }
 } 

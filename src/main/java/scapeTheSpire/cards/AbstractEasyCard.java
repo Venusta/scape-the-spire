@@ -180,11 +180,11 @@ public abstract class AbstractEasyCard extends CustomCard {
   public void upgrade() {
     if (!upgraded) {
       upgradeName();
-      upp();
+      upgradeCard();
     }
   }
 
-  public abstract void upp();
+  public abstract void upgradeCard();
 
   public void update() {
     super.update();
@@ -213,7 +213,7 @@ public abstract class AbstractEasyCard extends CustomCard {
   }
 
   // These shortcuts are specifically for cards. All other shortcuts that aren't specifically for cards can go in Wiz.
-  protected void dmg(AbstractMonster m, AbstractGameAction.AttackEffect fx) {
+  protected void damage(AbstractMonster m, AbstractGameAction.AttackEffect fx) {
     addToBottom(new DamageAction(m, new DamageInfo(AbstractDungeon.player, damage, damageTypeForTurn), fx));
   }
 

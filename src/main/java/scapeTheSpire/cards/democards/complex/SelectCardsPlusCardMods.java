@@ -39,7 +39,7 @@ public class SelectCardsPlusCardMods extends AbstractEasyCard {
     }));
   }
 
-  public void upp() {
+  public void upgradeCard() {
     upgradeBaseCost(0);
   }
 } 

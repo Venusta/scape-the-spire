@@ -34,7 +34,7 @@ public class EasyModalChoiceCard extends AbstractEasyCard {
   }
 
   @Override
-  public void upp() {
+  public void upgradeCard() {
 
   }
 

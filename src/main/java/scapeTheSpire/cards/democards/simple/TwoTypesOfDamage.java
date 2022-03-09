@@ -22,11 +22,11 @@ public class TwoTypesOfDamage extends AbstractEasyCard {
     if (p.hasPower(VulnerablePower.POWER_ID)) {
       altDmg(m, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
     } else {
-      dmg(m, AbstractGameAction.AttackEffect.BLUNT_LIGHT);
+      damage(m, AbstractGameAction.AttackEffect.BLUNT_LIGHT);
     }
   }
 
-  public void upp() {
+  public void upgradeCard() {
     upgradeBaseCost(0); // Upgrade the base cost to 0. Other upgrade logic isn't necessary.
   }
 }

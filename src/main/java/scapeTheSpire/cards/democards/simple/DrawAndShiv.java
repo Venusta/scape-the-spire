@@ -24,7 +24,7 @@ public class DrawAndShiv extends AbstractEasyCard {
     makeInHand(new Shiv()); // Add to the bottom of the action queue an action which adds a Shiv into your hand. (This is shorthanded by makeInHand).
   }
 
-  public void upp() {
+  public void upgradeCard() {
     upgradeBaseCost(0); // Upgrade the base cost to 0. Other upgrade logic isn't necessary.
   }
 }
