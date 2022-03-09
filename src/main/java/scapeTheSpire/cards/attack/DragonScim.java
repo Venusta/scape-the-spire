@@ -28,5 +28,4 @@ public class DragonScim extends AbstractEasyCard {
     upgradeDamage(5);
   }
 
-
 }
