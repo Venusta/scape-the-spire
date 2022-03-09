@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -122,6 +123,10 @@ public class Wiz {
 
   public static void att(AbstractGameAction action) {
     AbstractDungeon.actionManager.addToTop(action);
+  }
+
+  public static void sfxAction(String action) {
+    addToBottom(new SFXAction(action));
   }
 
   public static void vfx(AbstractGameEffect gameEffect) {
