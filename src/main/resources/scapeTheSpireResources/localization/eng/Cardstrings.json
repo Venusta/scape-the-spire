@@ -53,6 +53,10 @@
     "NAME": "Two Types of Damage",
     "DESCRIPTION": "Deal !D! damage. NL If you're Vulnerable, deal !${ModID}:sd! damage instead."
   },
+  "${ModID}:DragonWarhammer": {
+    "NAME": "Dragon Warhammer",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable to target enemy"
+  },
   "${ModID}:DragonScim": {
     "NAME": "Dragon Scimitar",
     "DESCRIPTION": "Remove all Block from the enemy. NL Deal !D! damage."
