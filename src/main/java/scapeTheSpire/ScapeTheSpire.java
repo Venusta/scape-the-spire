@@ -2,6 +2,7 @@ package scapeTheSpire;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
+import basemod.Pair;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -21,17 +22,19 @@ import scapeTheSpire.cards.AbstractEasyCard;
 import scapeTheSpire.cards.cardvars.SecondDamage;
 import scapeTheSpire.cards.cardvars.SecondMagicNumber;
 import scapeTheSpire.relics.AbstractEasyRelic;
+import scapeTheSpire.util.SoundEffects;
 
 import java.nio.charset.StandardCharsets;
 
-@SuppressWarnings({"unused", "WeakerAccess"})
+@SuppressWarnings({ "unused", "WeakerAccess" })
 @SpireInitializer
 public class ScapeTheSpire implements
     EditCardsSubscriber,
     EditRelicsSubscriber,
     EditStringsSubscriber,
     EditKeywordsSubscriber,
-    EditCharactersSubscriber {
+    EditCharactersSubscriber,
+    AddAudioSubscriber {
 
   public static final String modID = "scapeTheSpire";
 
@@ -42,7 +45,8 @@ public class ScapeTheSpire implements
   // This makes debugging so much easier
   public static Logger logger = LogManager.getLogger(ScapeTheSpire.class.getName());
 
-  public static Color characterColor = new Color(MathUtils.random(), MathUtils.random(), MathUtils.random(), 1); // This should be changed eventually
+  // This should be changed eventually
+  public static Color characterColor = new Color(MathUtils.random(), MathUtils.random(), MathUtils.random(), 1);
 
   public static final String SHOULDER1 = modID + "Resources/images/char/mainChar/shoulder.png";
   public static final String SHOULDER2 = modID + "Resources/images/char/mainChar/shoulder2.png";
@@ -89,6 +93,10 @@ public class ScapeTheSpire implements
     return modID + "Resources/images/cards/" + resourcePath;
   }
 
+  public static String makeAudioPath(String resourcePath) {
+    return modID + "Resources/audio/" + resourcePath;
+  }
+
   public static void initialize() {
     ScapeTheSpire thismod = new ScapeTheSpire();
   }
@@ -125,7 +133,6 @@ public class ScapeTheSpire implements
         .cards();
   }
 
-
   @Override
   public void receiveEditStrings() {
     BaseMod.loadCustomStringsFile(CardStrings.class, modID + "Resources/localization/eng/Cardstrings.json");
@@ -140,13 +147,25 @@ public class ScapeTheSpire implements
   @Override
   public void receiveEditKeywords() {
     Gson gson = new Gson();
-    String json = Gdx.files.internal(modID + "Resources/localization/eng/Keywordstrings.json").readString(String.valueOf(StandardCharsets.UTF_8));
-    com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = gson.fromJson(json, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
+    String json = Gdx.files.internal(modID + "Resources/localization/eng/Keywordstrings.json")
+        .readString(String.valueOf(StandardCharsets.UTF_8));
+    com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = gson.fromJson(json,
+        com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
 
     if (keywords != null) {
       for (Keyword keyword : keywords) {
         BaseMod.addKeyword(modID, keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
       }
     }
+  }
+
+  private void addAudio(Pair<String, String> audioData) {
+    BaseMod.addAudio(audioData.getKey(), audioData.getValue());
+  }
+
+  @Override
+  public void receiveAddAudio() {
+    addAudio(SoundEffects.IceBarrageSfx);
+
   }
 }

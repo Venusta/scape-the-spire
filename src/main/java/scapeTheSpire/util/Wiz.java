@@ -29,7 +29,8 @@ import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class Wiz {
-  //The wonderful Wizard of Oz allows access to most easy compilations of data, or functions.
+  // The wonderful Wizard of Oz allows access to most easy compilations of data,
+  // or functions.
 
   public static AbstractPlayer adp() {
     return AbstractDungeon.player;
@@ -74,19 +75,23 @@ public class Wiz {
     if (allcards) {
       ArrayList<AbstractCard> cardsList = new ArrayList<>();
       for (AbstractCard c : CardLibrary.getAllCards()) {
-        if (pred.test(c)) cardsList.add(c.makeStatEquivalentCopy());
+        if (pred.test(c))
+          cardsList.add(c.makeStatEquivalentCopy());
       }
       return cardsList;
     } else {
       ArrayList<AbstractCard> cardsList = new ArrayList<>();
       for (AbstractCard c : AbstractDungeon.srcCommonCardPool.group) {
-        if (pred.test(c)) cardsList.add(c.makeStatEquivalentCopy());
+        if (pred.test(c))
+          cardsList.add(c.makeStatEquivalentCopy());
       }
       for (AbstractCard c : AbstractDungeon.srcUncommonCardPool.group) {
-        if (pred.test(c)) cardsList.add(c.makeStatEquivalentCopy());
+        if (pred.test(c))
+          cardsList.add(c.makeStatEquivalentCopy());
       }
       for (AbstractCard c : AbstractDungeon.srcRareCardPool.group) {
-        if (pred.test(c)) cardsList.add(c.makeStatEquivalentCopy());
+        if (pred.test(c))
+          cardsList.add(c.makeStatEquivalentCopy());
       }
       return cardsList;
     }
@@ -95,7 +100,6 @@ public class Wiz {
   public static AbstractCard returnTrulyRandomPrediCardInCombat(Predicate<AbstractCard> pred, boolean allCards) {
     return getRandomItem(getCardsMatchingPredicate(pred, allCards));
   }
-
 
   public static AbstractCard returnTrulyRandomPrediCardInCombat(Predicate<AbstractCard> pred) {
     return returnTrulyRandomPrediCardInCombat(pred, false);
@@ -110,11 +114,13 @@ public class Wiz {
   }
 
   private static boolean actuallyHovered(Hitbox hb) {
-    return InputHelper.mX > hb.x && InputHelper.mX < hb.x + hb.width && InputHelper.mY > hb.y && InputHelper.mY < hb.y + hb.height;
+    return InputHelper.mX > hb.x && InputHelper.mX < hb.x + hb.width && InputHelper.mY > hb.y
+        && InputHelper.mY < hb.y + hb.height;
   }
 
   public static boolean isInCombat() {
-    return CardCrawlGame.isInARun() && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT;
+    return CardCrawlGame.isInARun() && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom() != null
+        && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT;
   }
 
   public static void addToBottom(AbstractGameAction action) {
@@ -129,11 +135,11 @@ public class Wiz {
     addToBottom(new SFXAction(action));
   }
 
-  public static void vfx(AbstractGameEffect gameEffect) {
+  public static void vfxAction(AbstractGameEffect gameEffect) {
     addToBottom(new VFXAction(gameEffect));
   }
 
-  public static void vfx(AbstractGameEffect gameEffect, float duration) {
+  public static void vfxAction(AbstractGameEffect gameEffect, float duration) {
     addToBottom(new VFXAction(gameEffect, duration));
   }
 
@@ -169,9 +175,10 @@ public class Wiz {
     applyPowerToEnemy(m, new VulnerablePower(m, magicNumber, false));
   }
 
-   public static void applyPowerToEnemy(AbstractMonster m, AbstractPower po, boolean isFast, AttackEffect effect) {
+  public static void applyPowerToEnemy(AbstractMonster m, AbstractPower po, boolean isFast, AttackEffect effect) {
     addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, po, po.amount, isFast, effect));
   }
+
   public static void applyPowerToEnemy(AbstractMonster m, AbstractPower po) {
     addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, po, po.amount));
   }
@@ -190,15 +197,18 @@ public class Wiz {
 
   public static void applyToSelfTemp(AbstractPower po) {
     addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, po, po.amount));
-    addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new LosePowerPower(AbstractDungeon.player, po, po.amount)));
+    addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
+        new LosePowerPower(AbstractDungeon.player, po, po.amount)));
   }
 
   public static void applyToSelfNextTurn(AbstractPower po) {
-    addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new NextTurnPowerPower(AbstractDungeon.player, po)));
+    addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
+        new NextTurnPowerPower(AbstractDungeon.player, po)));
   }
 
   public static void thornDmg(AbstractCreature m, int amount, AbstractGameAction.AttackEffect AtkFX) {
-    addToBottom(new DamageAction(m, new DamageInfo(AbstractDungeon.player, amount, DamageInfo.DamageType.THORNS), AtkFX));
+    addToBottom(
+        new DamageAction(m, new DamageInfo(AbstractDungeon.player, amount, DamageInfo.DamageType.THORNS), AtkFX));
   }
 
   public static void thornDmg(AbstractCreature m, int amount) {

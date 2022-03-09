@@ -60,5 +60,9 @@
   "${ModID}:DragonScim": {
     "NAME": "Dragon Scimitar",
     "DESCRIPTION": "Remove all Block from the enemy. NL Deal !D! damage."
+  },
+  "${ModID}:IceBarrage": {
+    "NAME": "Ice Barrage",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies and stun them. NL Exhaust."
   }
 }
