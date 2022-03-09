@@ -10,7 +10,7 @@ import scapeTheSpire.cards.AbstractEasyCard;
 import scapeTheSpire.powers.LambdaPower;
 
 import static scapeTheSpire.ScapeTheSpire.makeID;
-import static scapeTheSpire.util.Wiz.applyToSelf;
+import static scapeTheSpire.util.Wiz.applyPowerToSelf;
 import static scapeTheSpire.util.Wiz.addToBottom;
 
 public class InlinePowerDemo extends AbstractEasyCard {
@@ -27,7 +27,7 @@ public class InlinePowerDemo extends AbstractEasyCard {
   }
 
   public void use(AbstractPlayer p, AbstractMonster m) {
-    applyToSelf(new LambdaPower("Strike+, Block+", AbstractPower.PowerType.BUFF, false, p, magicNumber) {
+    applyPowerToSelf(new LambdaPower("Strike+, Block+", AbstractPower.PowerType.BUFF, false, p, magicNumber) {
       @Override
       public float atDamageGive(float damage, DamageInfo.DamageType type, AbstractCard card) {
         if (card.hasTag(CardTags.STRIKE)) {

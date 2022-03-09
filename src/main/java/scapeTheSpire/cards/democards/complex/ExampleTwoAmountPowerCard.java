@@ -6,7 +6,7 @@ import scapeTheSpire.cards.AbstractEasyCard;
 import scapeTheSpire.powers.ExampleTwoAmountPower;
 
 import static scapeTheSpire.ScapeTheSpire.makeID;
-import static scapeTheSpire.util.Wiz.applyToSelf;
+import static scapeTheSpire.util.Wiz.applyPowerToSelf;
 
 public class ExampleTwoAmountPowerCard extends AbstractEasyCard {
   public final static String ID = makeID("ExampleTwoAmountPowerCard");
@@ -20,7 +20,7 @@ public class ExampleTwoAmountPowerCard extends AbstractEasyCard {
   }
 
   public void use(AbstractPlayer p, AbstractMonster m) {
-    applyToSelf(new ExampleTwoAmountPower(p, magicNumber, 1));
+    applyPowerToSelf(new ExampleTwoAmountPower(p, magicNumber, 1));
   }
 
   public void upgradeCard() {

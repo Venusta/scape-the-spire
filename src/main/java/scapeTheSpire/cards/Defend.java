@@ -16,7 +16,7 @@ public class Defend extends AbstractEasyCard {
   }
 
   public void use(AbstractPlayer p, AbstractMonster m) {
-    blck();
+    block();
   }
 
   public void upgradeCard() {

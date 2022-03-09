@@ -64,5 +64,9 @@
   "${ModID}:IceBarrage": {
     "NAME": "Ice Barrage",
     "DESCRIPTION": "Deal !D! damage to ALL enemies and stun them. NL Exhaust."
+  },
+  "${ModID}:Vengence": {
+    "NAME": "Vengence",
+    "DESCRIPTION": "Gain !B! Block. NL Whenever you are attacked this turn, deal !M! damage back."
   }
 }

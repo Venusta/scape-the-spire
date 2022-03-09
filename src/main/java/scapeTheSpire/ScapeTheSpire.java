@@ -166,6 +166,7 @@ public class ScapeTheSpire implements
   @Override
   public void receiveAddAudio() {
     addAudio(SoundEffects.IceBarrageSfx);
+    addAudio(SoundEffects.VengenceSfx);
 
   }
 }

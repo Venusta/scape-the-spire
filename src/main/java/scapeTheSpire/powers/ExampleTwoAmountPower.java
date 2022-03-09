@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import scapeTheSpire.ScapeTheSpire;
 
 import static scapeTheSpire.util.Wiz.adp;
-import static scapeTheSpire.util.Wiz.applyToSelf;
+import static scapeTheSpire.util.Wiz.applyPowerToSelf;
 
 public class ExampleTwoAmountPower extends AbstractEasyPower implements OnReceivePowerPower {
   // intellij stuff Example, buff, false
@@ -40,8 +40,8 @@ public class ExampleTwoAmountPower extends AbstractEasyPower implements OnReceiv
 
   @Override
   public void atStartOfTurn() {
-    applyToSelf(new StrengthPower(adp(), amount));
-    applyToSelf(new DexterityPower(adp(), amount2));
+    applyPowerToSelf(new StrengthPower(adp(), amount));
+    applyPowerToSelf(new DexterityPower(adp(), amount2));
   }
 
   @Override

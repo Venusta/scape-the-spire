@@ -187,7 +187,7 @@ public class Wiz {
     att(new ApplyPowerAction(m, AbstractDungeon.player, po, po.amount));
   }
 
-  public static void applyToSelf(AbstractPower po) {
+  public static void applyPowerToSelf(AbstractPower po) {
     addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, po, po.amount));
   }
 
