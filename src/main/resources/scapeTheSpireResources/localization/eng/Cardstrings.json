@@ -52,5 +52,9 @@
   "${ModID}:TwoTypesOfDamage": {
     "NAME": "Two Types of Damage",
     "DESCRIPTION": "Deal !D! damage. NL If you're Vulnerable, deal !${ModID}:sd! damage instead."
+  },
+  "${ModID}:DragonScim": {
+    "NAME": "Dragon Scimitar",
+    "DESCRIPTION": "Remove all Block from the enemy. NL Deal !D! damage."
   }
 }
