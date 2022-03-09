@@ -1,6 +1,7 @@
 package scapeTheSpire.util;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -14,6 +15,7 @@ import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
@@ -158,7 +160,14 @@ public class Wiz {
     topDeck(c, 1);
   }
 
-  public static void applyToEnemy(AbstractMonster m, AbstractPower po) {
+  public static void applyVulnToEnemy(AbstractMonster m, int magicNumber) {
+    applyPowerToEnemy(m, new VulnerablePower(m, magicNumber, false));
+  }
+
+   public static void applyPowerToEnemy(AbstractMonster m, AbstractPower po, boolean isFast, AttackEffect effect) {
+    addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, po, po.amount, isFast, effect));
+  }
+  public static void applyPowerToEnemy(AbstractMonster m, AbstractPower po) {
     addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, po, po.amount));
   }
 
