@@ -9,7 +9,7 @@ import scapeTheSpire.cards.AbstractEasyCard;
 
 import static scapeTheSpire.ScapeTheSpire.makeID;
 import static scapeTheSpire.util.Wiz.applyToSelfTop;
-import static scapeTheSpire.util.Wiz.atb;
+import static scapeTheSpire.util.Wiz.addToBottom;
 
 public class EasyXCostDemo extends AbstractEasyCard {
   public final static String ID = makeID("EasyXCostDemo");
@@ -23,7 +23,7 @@ public class EasyXCostDemo extends AbstractEasyCard {
   }
 
   public void use(AbstractPlayer p, AbstractMonster m) {
-    atb(new EasyXCostAction(this, (effect, params) -> {
+    addToBottom(new EasyXCostAction(this, (effect, params) -> {
       for (int i = 0; i < effect + params[0]; i++) {
         dmgTop(m, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
       }

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 import static scapeTheSpire.ScapeTheSpire.makeImagePath;
 import static scapeTheSpire.ScapeTheSpire.modID;
-import static scapeTheSpire.util.Wiz.atb;
+import static scapeTheSpire.util.Wiz.addToBottom;
 import static scapeTheSpire.util.Wiz.att;
 
 public abstract class AbstractEasyCard extends CustomCard {
@@ -214,7 +214,7 @@ public abstract class AbstractEasyCard extends CustomCard {
 
   // These shortcuts are specifically for cards. All other shortcuts that aren't specifically for cards can go in Wiz.
   protected void dmg(AbstractMonster m, AbstractGameAction.AttackEffect fx) {
-    atb(new DamageAction(m, new DamageInfo(AbstractDungeon.player, damage, damageTypeForTurn), fx));
+    addToBottom(new DamageAction(m, new DamageInfo(AbstractDungeon.player, damage, damageTypeForTurn), fx));
   }
 
   protected void dmgTop(AbstractMonster m, AbstractGameAction.AttackEffect fx) {
@@ -222,15 +222,15 @@ public abstract class AbstractEasyCard extends CustomCard {
   }
 
   protected void allDmg(AbstractGameAction.AttackEffect fx) {
-    atb(new DamageAllEnemiesAction(AbstractDungeon.player, multiDamage, damageTypeForTurn, fx));
+    addToBottom(new DamageAllEnemiesAction(AbstractDungeon.player, multiDamage, damageTypeForTurn, fx));
   }
 
   protected void altDmg(AbstractMonster m, AbstractGameAction.AttackEffect fx) {
-    atb(new DamageAction(m, new DamageInfo(AbstractDungeon.player, secondDamage, damageTypeForTurn), fx));
+    addToBottom(new DamageAction(m, new DamageInfo(AbstractDungeon.player, secondDamage, damageTypeForTurn), fx));
   }
 
   protected void blck() {
-    atb(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, block));
+    addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, block));
   }
 
   public String cardArtCopy() {

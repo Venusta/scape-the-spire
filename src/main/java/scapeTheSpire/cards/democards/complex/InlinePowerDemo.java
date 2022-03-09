@@ -11,7 +11,7 @@ import scapeTheSpire.powers.LambdaPower;
 
 import static scapeTheSpire.ScapeTheSpire.makeID;
 import static scapeTheSpire.util.Wiz.applyToSelf;
-import static scapeTheSpire.util.Wiz.atb;
+import static scapeTheSpire.util.Wiz.addToBottom;
 
 public class InlinePowerDemo extends AbstractEasyCard {
 
@@ -39,7 +39,7 @@ public class InlinePowerDemo extends AbstractEasyCard {
       @Override
       public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
         flash();
-        atb(new GainBlockAction(owner, amount));
+        addToBottom(new GainBlockAction(owner, amount));
       }
 
       @Override
