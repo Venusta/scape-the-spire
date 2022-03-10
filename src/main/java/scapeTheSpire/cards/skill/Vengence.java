@@ -1,14 +1,10 @@
 package scapeTheSpire.cards.skill;
 
-import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.FlameBarrierPower;
 import com.megacrit.cardcrawl.vfx.combat.FlameBarrierEffect;
-import com.megacrit.cardcrawl.vfx.combat.SweepingBeamEffect;
 
 import scapeTheSpire.cards.AbstractEasyCard;
 import scapeTheSpire.util.SoundEffects;
