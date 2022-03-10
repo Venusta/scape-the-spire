@@ -19,7 +19,7 @@ public class SoundEffects {
     return new Pair<String, String>(key, value);
   }
 
-  public static final Pair<String, String> Vengence = makePair("Vengence");
+  public static final Pair<String, String> Vengeance = makePair("Vengeance");
   public static final Pair<String, String> IceBarrage = makePair("IceBarrage");
 
   public static HashMap<String, String> getHashMap() {

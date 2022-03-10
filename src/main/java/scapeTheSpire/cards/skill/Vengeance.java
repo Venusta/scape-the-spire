@@ -14,11 +14,11 @@ import static scapeTheSpire.util.Wiz.sfxAction;
 import static scapeTheSpire.util.Wiz.vfxAction;
 import static scapeTheSpire.util.Wiz.applyPowerToSelf;
 
-public class Vengence extends AbstractEasyCard {
+public class Vengeance extends AbstractEasyCard {
 
-  public final static String ID = makeID(Vengence.class.getSimpleName());
+  public final static String ID = makeID(Vengeance.class.getSimpleName());
 
-  public Vengence() {
+  public Vengeance() {
     super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
     block = baseBlock = 12;
     magicNumber = baseMagicNumber = 4;
@@ -32,7 +32,7 @@ public class Vengence extends AbstractEasyCard {
 
   @Override
   public void use(AbstractPlayer p, AbstractMonster m) {
-    sfxAction(SoundEffects.Vengence.getKey());
+    sfxAction(SoundEffects.Vengeance.getKey());
 
     if (Settings.FAST_MODE) {
       vfxAction(new FlameBarrierEffect(p.hb.cX, p.hb.cY), 0.1F);
