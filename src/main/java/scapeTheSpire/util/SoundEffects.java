@@ -3,15 +3,26 @@ package scapeTheSpire.util;
 import basemod.Pair;
 
 import static scapeTheSpire.ScapeTheSpire.makeID;
+
+import java.util.HashMap;
+
 import static scapeTheSpire.ScapeTheSpire.makeAudioPath;
 
 public class SoundEffects {
+  private static final HashMap<String, String> hashMap = new HashMap<String, String>();
 
   public static Pair<String, String> makePair(String name) {
-    return new Pair<String, String>(makeID(name + "Sfx"), makeAudioPath(name + ".mp3"));
+    String key = makeID(name + "Sfx");
+    String value = makeAudioPath(name + ".mp3");
+    hashMap.put(key, value);
+
+    return new Pair<String, String>(key, value);
   }
 
-  // method name must match "name + sfx"
-  public static final Pair<String, String> VengenceSfx = makePair("Vengence");
-  public static final Pair<String, String> IceBarrageSfx = makePair("IceBarrage");
+  public static final Pair<String, String> Vengence = makePair("Vengence");
+  public static final Pair<String, String> IceBarrage = makePair("IceBarrage");
+
+  public static HashMap<String, String> getHashMap() {
+    return hashMap;
+  }
 }

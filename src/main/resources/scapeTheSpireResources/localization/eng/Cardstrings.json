@@ -68,5 +68,10 @@
   "${ModID}:Vengence": {
     "NAME": "Vengence",
     "DESCRIPTION": "Gain !B! Block. NL Whenever you are attacked this turn, deal !M! damage back."
+  },
+  "${ModID}:AvasAssembler": {
+    "NAME": "Ava's Assembler",
+    "DESCRIPTION": "Cards which Exhaust when played will instead discard 20% of the time.",
+    "UPGRADE_DESCRIPTION": "Cards which Exhaust when played will instead discard 30% of the time."
   }
 }

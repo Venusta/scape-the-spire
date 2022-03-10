@@ -6,5 +6,12 @@
       " #yStrength and #b",
       " #yDexterity."
     ]
+  },
+  "scapeTheSpire:PreventExhaustPower": {
+    "NAME": "Ava's Assembler",
+    "DESCRIPTIONS": [
+      "#b",
+      " percent chance not to exhaust cards. NL Caps at 70 percent."
+    ]
   }
 }

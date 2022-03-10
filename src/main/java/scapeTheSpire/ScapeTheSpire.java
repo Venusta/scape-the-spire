@@ -159,14 +159,10 @@ public class ScapeTheSpire implements
     }
   }
 
-  private void addAudio(Pair<String, String> audioData) {
-    BaseMod.addAudio(audioData.getKey(), audioData.getValue());
-  }
-
   @Override
   public void receiveAddAudio() {
-    addAudio(SoundEffects.IceBarrageSfx);
-    addAudio(SoundEffects.VengenceSfx);
-
+    SoundEffects.getHashMap().forEach((k, v) -> {
+      BaseMod.addAudio(k, v);
+    });
   }
 }

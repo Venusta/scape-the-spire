@@ -36,7 +36,7 @@ public class Vengence extends AbstractEasyCard {
 
   @Override
   public void use(AbstractPlayer p, AbstractMonster m) {
-    sfxAction(SoundEffects.VengenceSfx.getKey());
+    sfxAction(SoundEffects.Vengence.getKey());
 
     if (Settings.FAST_MODE) {
       vfxAction(new FlameBarrierEffect(p.hb.cX, p.hb.cY), 0.1F);

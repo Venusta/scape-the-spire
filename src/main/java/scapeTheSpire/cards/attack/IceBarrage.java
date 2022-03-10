@@ -24,7 +24,7 @@ public class IceBarrage extends AbstractEasyCard {
     super(ID, 3, CardType.ATTACK, CardRarity.RARE, CardTarget.ALL_ENEMY);
     baseDamage = 12;
     isMultiDamage = true;
-    this.exhaust = true;
+    exhaust = true;
   }
 
   @Override
@@ -35,7 +35,7 @@ public class IceBarrage extends AbstractEasyCard {
 
   @Override
   public void use(AbstractPlayer player, AbstractMonster m) {
-    sfxAction(SoundEffects.IceBarrageSfx.getKey());
+    sfxAction(SoundEffects.IceBarrage.getKey());
     vfxAction(new SweepingBeamEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY,
         AbstractDungeon.player.flipHorizontal), 0.4F);
     damageAll(AbstractGameAction.AttackEffect.LIGHTNING);
