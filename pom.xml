@@ -67,6 +67,7 @@
                     <excludes>
                         <exclude>**/*.psd</exclude>
                         <exclude>**/originals/</exclude>
+                        <exclude>**/audio/*.wav</exclude>
                     </excludes>
                 </configuration>
             </plugin>
