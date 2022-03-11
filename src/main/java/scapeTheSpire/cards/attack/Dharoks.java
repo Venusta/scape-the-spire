@@ -24,18 +24,24 @@ public class Dharoks extends AbstractEasyCard {
 
   @Override
   public void triggerWhenDrawn() {
-    this.baseDamage = AbstractDungeon.player.maxHealth - AbstractDungeon.player.currentHealth;
+    baseDamage = AbstractDungeon.player.maxHealth - AbstractDungeon.player.currentHealth;
     super.triggerWhenDrawn();
   }
 
   @Override
   public void tookDamage() {
-    this.baseDamage = AbstractDungeon.player.maxHealth - AbstractDungeon.player.currentHealth;
+    baseDamage = AbstractDungeon.player.maxHealth - AbstractDungeon.player.currentHealth;
+  }
+
+  @Override
+  public void calculateCardDamage(AbstractMonster mo) {
+    baseDamage = AbstractDungeon.player.maxHealth - AbstractDungeon.player.currentHealth;
+    super.calculateCardDamage(mo);
   }
 
   @Override
   public void use(AbstractPlayer player, AbstractMonster monster) {
-    this.baseDamage = player.maxHealth - player.currentHealth;
+    baseDamage = player.maxHealth - player.currentHealth;
     calculateCardDamage(monster);
     damage(monster, AbstractGameAction.AttackEffect.SLASH_HEAVY);
   }
