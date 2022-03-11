@@ -81,5 +81,9 @@
   "${ModID}:SuperStrength": {
     "NAME": "Super Strength",
     "DESCRIPTION": "Your next Attack deals !M! additional damage."
+  },
+  "${ModID}:DragonDagger": {
+    "NAME": "Dragon Dagger (p)",
+    "DESCRIPTION": "Deal !D! twice applying !M! poison with each hit."
   }
 }

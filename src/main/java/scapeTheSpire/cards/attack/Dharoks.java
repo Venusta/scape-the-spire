@@ -8,9 +8,11 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import scapeTheSpire.cards.AbstractEasyCard;
+import scapeTheSpire.util.SoundEffects;
 
 import static scapeTheSpire.ScapeTheSpire.makeID;
 import static scapeTheSpire.util.Wiz.addToBottom;
+import static scapeTheSpire.util.Wiz.sfxAction;;
 
 public class Dharoks extends AbstractEasyCard {
 
@@ -55,6 +57,8 @@ public class Dharoks extends AbstractEasyCard {
 
   @Override
   public void use(AbstractPlayer player, AbstractMonster monster) {
+    sfxAction(SoundEffects.dharok_axe_crush.getKey());
+
     calculateCardDamage(monster);
     addToBottom(new DamageAction(monster, new DamageInfo(player, magicNumber, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_HEAVY));
   }
