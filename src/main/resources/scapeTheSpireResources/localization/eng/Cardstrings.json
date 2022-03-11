@@ -76,6 +76,6 @@
   },
   "${ModID}:Dharoks": {
     "NAME": "Dharok's Greataxe",
-    "DESCRIPTION": "Deal !D! damage. NL This a attack scales from hp lost"
+    "DESCRIPTION": "Deal !D! damage. NL This a attack scales from hp lost."
   }
 }

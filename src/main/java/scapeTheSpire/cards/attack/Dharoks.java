@@ -15,8 +15,6 @@ public class Dharoks extends AbstractEasyCard {
   public Dharoks() {
     super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
     baseDamage = 1;
-    isDamageModified = true;
-    magicNumber = baseMagicNumber = 0;
   }
 
   @Override
@@ -25,17 +23,14 @@ public class Dharoks extends AbstractEasyCard {
   }
 
   @Override
-  public void tookDamage() {
+  public void triggerWhenDrawn() {
     this.baseDamage = AbstractDungeon.player.maxHealth - AbstractDungeon.player.currentHealth;
-    rawDescription = cardStrings.DESCRIPTION;
-    initializeDescription();
+    super.triggerWhenDrawn();
   }
 
   @Override
-  public void triggerWhenDrawn() {
+  public void tookDamage() {
     this.baseDamage = AbstractDungeon.player.maxHealth - AbstractDungeon.player.currentHealth;
-    rawDescription = cardStrings.DESCRIPTION;
-    initializeDescription();
   }
 
   @Override
@@ -43,9 +38,6 @@ public class Dharoks extends AbstractEasyCard {
     this.baseDamage = player.maxHealth - player.currentHealth;
     calculateCardDamage(monster);
     damage(monster, AbstractGameAction.AttackEffect.SLASH_HEAVY);
-    rawDescription = cardStrings.DESCRIPTION;
-    initializeDescription();
-
   }
 
 }
