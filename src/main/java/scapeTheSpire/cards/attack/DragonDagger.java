@@ -29,15 +29,35 @@ public class DragonDagger extends AbstractEasyCard {
   }
 
   @Override
-  public void upgradeCard() {
+  public boolean canUpgrade() {
+    return this.timesUpgraded < 2;
+  }
+
+  @Override
+  public void upgrade() {
+    this.upgraded = true;
     this.timesUpgraded += 1;
+    upgradeName();
+    upgradeCard();
+  }
+
+  @Override
+  public void upgradeCard() {
     if (this.timesUpgraded == 1) {
       upgradeMagicNumber(2);
-      this.name = cardStrings.NAME.replace("(p)", "(p+)");
     }
     if (this.timesUpgraded == 2) {
       upgradeMagicNumber(3);
       upgradeBaseCost(1);
+    }
+  }
+
+  @Override
+  public void upgradeName() {
+    if (this.timesUpgraded == 1) {
+      this.name = cardStrings.NAME.replace("(p)", "(p+)");
+    }
+    if (this.timesUpgraded == 2) {
       this.name = cardStrings.NAME.replace("(p)", "(p++)");
     }
     initializeTitle();
@@ -54,10 +74,7 @@ public class DragonDagger extends AbstractEasyCard {
 
   }
 
-  @Override
-  public boolean canUpgrade() {
-    return this.timesUpgraded < 2;
-  }
+
 
   // public AbstractCard makeCopy() {
   // return new SearingBlow(this.timesUpgraded);
