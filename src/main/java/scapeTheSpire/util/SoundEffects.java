@@ -21,6 +21,7 @@ public class SoundEffects {
 
   public static final Pair<String, String> Vengeance = makePair("Vengeance");
   public static final Pair<String, String> IceBarrage = makePair("IceBarrage");
+  public static final Pair<String, String> Liquid = makePair("Liquid");
 
   public static HashMap<String, String> getHashMap() {
     return hashMap;
