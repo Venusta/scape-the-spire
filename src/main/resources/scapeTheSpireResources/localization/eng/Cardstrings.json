@@ -76,7 +76,7 @@
   },
   "${ModID}:Dharoks": {
     "NAME": "Dharok's Greataxe",
-    "DESCRIPTION": "Deal !D! damage. NL This attack scales from hp lost."
+    "DESCRIPTION": "Deal 3 + !D! % of your missing HP as damage. NL (Deals !M! damage.)"
   },
   "${ModID}:SuperStrength": {
     "NAME": "Super Strength",

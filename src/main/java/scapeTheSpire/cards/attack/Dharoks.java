@@ -1,49 +1,62 @@
 package scapeTheSpire.cards.attack;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import scapeTheSpire.cards.AbstractEasyCard;
 
 import static scapeTheSpire.ScapeTheSpire.makeID;
+import static scapeTheSpire.util.Wiz.addToBottom;
 
 public class Dharoks extends AbstractEasyCard {
 
   public final static String ID = makeID(Dharoks.class.getSimpleName());
 
+  private static final int DAMAGE_PERCENT = 25;
+  private static final int UPGRADE_PLUS_DAMAGE_PERCENT = 25;
+
+  private static final int DEFAULT_DAMAGE = 0;
+
   public Dharoks() {
     super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-    baseDamage = 1;
-  }
-
-  @Override
-  public void upgradeCard() {
-    upgradeDamage(3);
+    damage = baseDamage = DAMAGE_PERCENT;
+    magicNumber = baseMagicNumber = DEFAULT_DAMAGE;
   }
 
   @Override
   public void triggerWhenDrawn() {
-    baseDamage = AbstractDungeon.player.maxHealth - AbstractDungeon.player.currentHealth;
     super.triggerWhenDrawn();
+    magicNumber = MathUtils.floor((AbstractDungeon.player.maxHealth - AbstractDungeon.player.currentHealth)*damage/100f) + 3;
+    isMagicNumberModified = magicNumber != baseMagicNumber;
   }
 
   @Override
   public void tookDamage() {
-    baseDamage = AbstractDungeon.player.maxHealth - AbstractDungeon.player.currentHealth;
+    magicNumber = MathUtils.floor((AbstractDungeon.player.maxHealth - AbstractDungeon.player.currentHealth)*damage/100f) + 3;
+    isMagicNumberModified = magicNumber != baseMagicNumber;
+  }
+
+  @Override
+  public void upgradeCard() {
+    upgradeDamage(UPGRADE_PLUS_DAMAGE_PERCENT);
+    initializeDescription();
   }
 
   @Override
   public void calculateCardDamage(AbstractMonster mo) {
-    baseDamage = AbstractDungeon.player.maxHealth - AbstractDungeon.player.currentHealth;
     super.calculateCardDamage(mo);
+    magicNumber = MathUtils.floor((AbstractDungeon.player.maxHealth - AbstractDungeon.player.currentHealth)*damage/100f) + 3;
+    isMagicNumberModified = magicNumber != baseMagicNumber;
   }
 
   @Override
   public void use(AbstractPlayer player, AbstractMonster monster) {
-    baseDamage = player.maxHealth - player.currentHealth;
     calculateCardDamage(monster);
-    damage(monster, AbstractGameAction.AttackEffect.SLASH_HEAVY);
+    addToBottom(new DamageAction(monster, new DamageInfo(player, magicNumber, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_HEAVY));
   }
 
 }
