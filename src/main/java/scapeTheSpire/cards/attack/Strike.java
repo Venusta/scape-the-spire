@@ -1,8 +1,10 @@
-package scapeTheSpire.cards;
+package scapeTheSpire.cards.attack;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import scapeTheSpire.cards.AbstractEasyCard;
 
 import static scapeTheSpire.ScapeTheSpire.makeID;
 

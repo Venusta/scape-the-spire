@@ -18,8 +18,9 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
-import scapeTheSpire.cards.Defend;
-import scapeTheSpire.cards.Strike;
+
+import scapeTheSpire.cards.attack.Strike;
+import scapeTheSpire.cards.skill.Defend;
 import scapeTheSpire.relics.TodoItem;
 
 import java.util.ArrayList;
